@@ -1,5 +1,6 @@
 from django.urls import include, path
 
+
 """
 This module defines the URL patterns for version 1 of the API.
 

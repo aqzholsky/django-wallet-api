@@ -1,14 +1,14 @@
-from rest_framework import viewsets, mixins, status
-from ledger.api.v1.serializers import (
-    WalletSerializer,
-    WalletTransferSerializer,
-    WalletTransferResponseSerializer,
-)
-from ledger.models import Wallet
+from django_filters.rest_framework import DjangoFilterBackend
+from drf_spectacular.utils import extend_schema
+from rest_framework import filters, mixins, status, viewsets
 from rest_framework.decorators import action
 from rest_framework.response import Response
+from rest_framework_json_api.filters import OrderingFilter
+from rest_framework_json_api.pagination import JsonApiPageNumberPagination
+
+from ledger.api.v1.serializers import WalletSerializer, WalletTransferResponseSerializer, WalletTransferSerializer
+from ledger.models import Wallet
 from ledger.services.wallet import WalletService
-from drf_spectacular.utils import extend_schema
 
 
 class WalletViewSet(
@@ -20,6 +20,11 @@ class WalletViewSet(
 ):
     queryset = Wallet.objects.all().prefetch_related("transactions")
     serializer_class = WalletSerializer
+    pagination_class = JsonApiPageNumberPagination
+    filter_backends = (DjangoFilterBackend, OrderingFilter, filters.SearchFilter)
+    search_fields = ("label",)
+    ordering_fields = ("id", "balance", "created_at", "updated_at")
+    filterset_fields = ("label",)
 
     def get_serializer_class(self):
         if self.action == "transfer":

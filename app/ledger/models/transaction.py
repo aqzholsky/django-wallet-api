@@ -1,7 +1,9 @@
 from django.db import models
 
+from common.models import TimestampMixin
 
-class Transaction(models.Model):
+
+class Transaction(TimestampMixin, models.Model):
     wallet = models.ForeignKey(
         "ledger.Wallet", on_delete=models.PROTECT, related_name="transactions"
     )

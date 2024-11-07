@@ -1,6 +1,7 @@
 import os
 from pathlib import Path
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
@@ -29,6 +30,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "rest_framework_json_api",
     "drf_spectacular",
+    "django_filters",
     "ledger",
 ]
 

@@ -1,10 +1,10 @@
-from django.conf import settings
 import traceback
-from .exceptions import (
-    UnprocessableEntityException,
-    APIExceptionWithStatusCode,
-)
+
+from django.conf import settings
+
 from rest_framework import status
+
+from .exceptions import APIExceptionWithStatusCode, UnprocessableEntityException
 
 
 class APIHandleExceptionMixin:

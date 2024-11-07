@@ -1,6 +1,7 @@
 from django.contrib import admin
-from ledger.models import Wallet, Transaction
 from django.forms.models import BaseInlineFormSet
+
+from ledger.models import Transaction, Wallet
 
 
 class TransactionInlineFormSet(BaseInlineFormSet):
@@ -21,4 +22,4 @@ class WalletAdmin(admin.ModelAdmin):
     list_display = ["id", "label", "balance"]
     search_fields = ["label"]
     inlines = [TransactionInline]
-    readonly_fields = ["balance"]
+    readonly_fields = ["balance", "created_at", "updated_at"]
