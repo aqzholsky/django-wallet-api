@@ -48,7 +48,7 @@ class WalletViewSet(
         )
 
         serializer = WalletTransferResponseSerializer(
-            data={
+            {
                 "source_wallet": source_wallet,
                 "destination_wallet": destination_wallet,
             }
