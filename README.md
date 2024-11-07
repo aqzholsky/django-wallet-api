@@ -17,6 +17,7 @@ echo "MYSQL_PORT=3306" >> .env
 echo "DJANGO_ADMIN_USERNAME=admin" >> .env
 echo "DJANGO_ADMIN_EMAIL=admin@gmail.com" >> .env
 echo "DJANGO_ADMIN_PASSWORD=admin" >> .env
+echo "DJANGO_SECRET_KEY=<GENERATED KEY>" >> .env
 ```
 
 #### Run docker container
