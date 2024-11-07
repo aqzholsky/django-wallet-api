@@ -1,4 +1,12 @@
+# Django Wallet API
+
 ### Quickstart
+
+#### Clone the repository:
+```sh
+git clone https://github.com/yourusername/django-wallet-api.git
+cd django-wallet-api
+```
 
 #### Generate secret key
 ```sh
@@ -27,3 +35,11 @@ docker-compose up -d --build
 
 ### Swagger Documentation
 You can access the automatically generated Swagger documentation for the API at http://localhost:8000/swagger
+
+### Tests
+This project uses `pytest` for testing.
+
+#### Run the tests
+```sh
+pytest app/tests
+```
