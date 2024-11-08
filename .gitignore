@@ -11,3 +11,4 @@ venv
 app/project/settings/local.py
 local*
 .pytest_cache
+.python-version
